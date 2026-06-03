@@ -4,12 +4,16 @@
 [ext_resource type="Script" uid="uid://0oy77lfm4giw" path="res://spawner.gd" id="2_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bw1l5virux584" path="res://enemy/formations/horizontal_ef.tscn" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://400ycqxrcwv" path="res://enemy/formations/vertical_ef.tscn" id="4_036b0"]
+[ext_resource type="FontFile" uid="uid://djh38d1lr5wc7" path="res://ari-w9500-condensed-bold.ttf" id="5_036b0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 size = Vector2(256, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqk2v"]
 size = Vector2(44, 218)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwbse"]
+font = ExtResource("5_036b0")
 
 [node name="World" type="Node2D" unique_id=1706192879]
 
@@ -29,8 +33,10 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=485014711]
 shape = SubResource("RectangleShape2D_tlwt5")
 
-[node name="BarrierArea" type="Area2D" parent="." unique_id=1127610593]
+[node name="BarrierArea" type="Area2D" parent="." unique_id=1127610593 groups=["barrier"]]
 position = Vector2(22, 109)
+collision_layer = 32
+collision_mask = 0
 
 [node name="ColorRect" type="ColorRect" parent="BarrierArea" unique_id=1678445882]
 offset_left = -22.0
@@ -55,7 +61,11 @@ autostart = true
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=1416021581 groups=["score_label"]]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 34.0
+text = "0"
+label_settings = SubResource("LabelSettings_dwbse")
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
