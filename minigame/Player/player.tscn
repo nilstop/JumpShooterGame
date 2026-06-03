@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d3gu184n7oanw"]
+
+[ext_resource type="Script" uid="uid://dosk3fcytf2pe" path="res://Player/player.gd" id="1_l8h54"]
+[ext_resource type="PackedScene" uid="uid://ctaa0jpr61pfw" path="res://Projectile/bullet.tscn" id="2_4ntmi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D" unique_id=1319995333]
+collision_mask = 4
+script = ExtResource("1_l8h54")
+jump_velocity = 250.0
+gravity = 15.0
+glide_velocity = 50.0
+bullet = ExtResource("2_4ntmi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2084892844]
+shape = SubResource("RectangleShape2D_fj7yv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=54491400]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0

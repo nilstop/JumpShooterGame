@@ -1,0 +1,108 @@
+{
+	"categories": [
+		{
+			"uuid": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"title": "Task",
+			"color": "569eff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "696026cc-a82f-4ed3-bbea-a2b6f2e30de3",
+			"title": "Todo",
+			"tasks": [
+				"79dd1059-452e-454d-85c1-55ad7fd51d94",
+				"e59455bf-3a88-443b-8928-ffdc95d3365c"
+			]
+		},
+		{
+			"uuid": "73222c82-1a22-4f17-9ecf-6774418798f5",
+			"title": "Doing",
+			"tasks": [
+				"2ebb1ae5-e5ab-49a7-a2a3-23ca9125bab6"
+			]
+		},
+		{
+			"uuid": "4e73e452-2553-4c0e-9c61-a56c2d0c6a64",
+			"title": "Done",
+			"tasks": [
+				"5dbd2e0f-70b2-413a-8c04-b070d3b73c64",
+				"daa9d4cd-29a7-4a70-ba62-ff66ed8833fb",
+				"c5b685fa-cba1-4f7d-a7d5-bccc1409605c",
+				"8dfd1cb6-894a-41d2-bde1-7f015191833a",
+				"281ec0cf-5280-4983-bb2a-c16413fc9707"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "5dbd2e0f-70b2-413a-8c04-b070d3b73c64",
+			"title": "jumping",
+			"description": "",
+			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"steps": []
+		},
+		{
+			"uuid": "daa9d4cd-29a7-4a70-ba62-ff66ed8833fb",
+			"title": "shooting",
+			"description": "",
+			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"steps": []
+		},
+		{
+			"uuid": "c5b685fa-cba1-4f7d-a7d5-bccc1409605c",
+			"title": "gliding",
+			"description": "",
+			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"steps": []
+		},
+		{
+			"uuid": "281ec0cf-5280-4983-bb2a-c16413fc9707",
+			"title": "enemies",
+			"description": "",
+			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"steps": []
+		},
+		{
+			"uuid": "79dd1059-452e-454d-85c1-55ad7fd51d94",
+			"title": "coins",
+			"description": "",
+			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"steps": []
+		},
+		{
+			"uuid": "e59455bf-3a88-443b-8928-ffdc95d3365c",
+			"title": "coin formations",
+			"description": "",
+			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"steps": []
+		},
+		{
+			"uuid": "8dfd1cb6-894a-41d2-bde1-7f015191833a",
+			"title": "enemy formations",
+			"description": "",
+			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"steps": []
+		},
+		{
+			"uuid": "2ebb1ae5-e5ab-49a7-a2a3-23ca9125bab6",
+			"title": "score system",
+			"description": "",
+			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"696026cc-a82f-4ed3-bbea-a2b6f2e30de3"
+			],
+			[
+				"73222c82-1a22-4f17-9ecf-6774418798f5"
+			],
+			[
+				"4e73e452-2553-4c0e-9c61-a56c2d0c6a64"
+			]
+		]
+	}
+}
