@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://400ycqxrcwv"]
 
-[ext_resource type="PackedScene" uid="uid://6r2yjn61qj14" path="res://enemy/formations/enemy_formation.tscn" id="1_4g75v"]
-[ext_resource type="PackedScene" uid="uid://cc4v7nvjcbhbk" path="res://enemy/enemy.tscn" id="2_fxity"]
+[ext_resource type="PackedScene" uid="uid://6r2yjn61qj14" path="res://Generation/formations/enemy_formation.tscn" id="1_4g75v"]
+[ext_resource type="PackedScene" uid="uid://cc4v7nvjcbhbk" path="res://Generation/Enemy/enemy.tscn" id="2_fxity"]
 
 [node name="Vertical EF" unique_id=871757220 instance=ExtResource("1_4g75v")]
 size = Vector2(22, 66)

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bu3jwtcj1pmoj"
-path="res://.godot/imported/Minecraft.ttf-b4cc597ac42d1410cc55dc192f0c0e34.fontdata"
+uid="uid://djh38d1lr5wc7"
+path="res://.godot/imported/ari-w9500-condensed-bold.ttf-a0479acd890d06c458308be9bc9026ef.fontdata"
 
 [deps]
 
-source_file="res://Minecraft.ttf"
-dest_files=["res://.godot/imported/Minecraft.ttf-b4cc597ac42d1410cc55dc192f0c0e34.fontdata"]
+source_file="res://Fonts/ari-w9500-condensed-bold.ttf"
+dest_files=["res://.godot/imported/ari-w9500-condensed-bold.ttf-a0479acd890d06c458308be9bc9026ef.fontdata"]
 
 [params]
 

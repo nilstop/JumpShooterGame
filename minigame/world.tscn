@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://iaarj5e8q4ei"]
 
 [ext_resource type="PackedScene" uid="uid://d3gu184n7oanw" path="res://Player/player.tscn" id="1_f3sb7"]
-[ext_resource type="Script" uid="uid://0oy77lfm4giw" path="res://spawner.gd" id="2_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://bw1l5virux584" path="res://enemy/formations/horizontal_ef.tscn" id="3_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://400ycqxrcwv" path="res://enemy/formations/vertical_ef.tscn" id="4_036b0"]
-[ext_resource type="FontFile" uid="uid://djh38d1lr5wc7" path="res://ari-w9500-condensed-bold.ttf" id="5_036b0"]
+[ext_resource type="Script" uid="uid://0oy77lfm4giw" path="res://Generation/spawner.gd" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://bw1l5virux584" path="res://Generation/formations/horizontal_ef.tscn" id="3_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://400ycqxrcwv" path="res://Generation/formations/vertical_ef.tscn" id="4_036b0"]
+[ext_resource type="FontFile" uid="uid://djh38d1lr5wc7" path="res://Fonts/ari-w9500-condensed-bold.ttf" id="5_036b0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 size = Vector2(256, 22)

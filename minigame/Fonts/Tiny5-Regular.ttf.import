@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dds3hper1k28d"
-path="res://.godot/imported/ari-w9500.ttf-b40c2ab1dc47aad72b2601ea4ad582cc.fontdata"
+uid="uid://pa6iqpjxjhr8"
+path="res://.godot/imported/Tiny5-Regular.ttf-72d3e3ba9f50a80e4bca6daa49dae804.fontdata"
 
 [deps]
 
-source_file="res://ari-w9500.ttf"
-dest_files=["res://.godot/imported/ari-w9500.ttf-b40c2ab1dc47aad72b2601ea4ad582cc.fontdata"]
+source_file="res://Fonts/Tiny5-Regular.ttf"
+dest_files=["res://.godot/imported/Tiny5-Regular.ttf-72d3e3ba9f50a80e4bca6daa49dae804.fontdata"]
 
 [params]
 

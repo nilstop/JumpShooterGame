@@ -12,15 +12,14 @@
 			"title": "Todo",
 			"tasks": [
 				"79dd1059-452e-454d-85c1-55ad7fd51d94",
-				"e59455bf-3a88-443b-8928-ffdc95d3365c"
+				"e59455bf-3a88-443b-8928-ffdc95d3365c",
+				"2ebb1ae5-e5ab-49a7-a2a3-23ca9125bab6"
 			]
 		},
 		{
 			"uuid": "73222c82-1a22-4f17-9ecf-6774418798f5",
 			"title": "Doing",
-			"tasks": [
-				"2ebb1ae5-e5ab-49a7-a2a3-23ca9125bab6"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "4e73e452-2553-4c0e-9c61-a56c2d0c6a64",
