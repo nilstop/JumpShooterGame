@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var bullet: PackedScene
 @export var particle: PackedScene
 
+@onready var camera_2d: Camera2D = %Camera2D
+
 func _ready() -> void:
 	Global.connect("game_over", game_over)
 
@@ -13,6 +15,7 @@ func _physics_process(_delta: float) -> void:
 	if Global.is_game_over == false:
 		if Input.is_action_just_pressed("jump"):
 			if velocity.y >= 0:
+				camera_2d.shake(3, 4)
 				inst(bullet)
 			velocity.y = -jump_velocity
 		#if Input.is_action_just_pressed("shoot"):

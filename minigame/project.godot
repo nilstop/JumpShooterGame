@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
 score_label=""
 bullet=""
 barrier=""
+camera=""
 
 [input]
 
