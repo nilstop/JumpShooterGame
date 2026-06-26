@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dosk3fcytf2pe" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="PackedScene" uid="uid://ctaa0jpr61pfw" path="res://Projectile/bullet.tscn" id="2_4ntmi"]
+[ext_resource type="PackedScene" uid="uid://h38vadmu3de5" path="res://Generation/Enemy/enemy_particle.tscn" id="3_btcbx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
 size = Vector2(16, 16)
@@ -13,6 +14,7 @@ jump_velocity = 250.0
 gravity = 15.0
 glide_velocity = 50.0
 bullet = ExtResource("2_4ntmi")
+particle = ExtResource("3_btcbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2084892844]
 shape = SubResource("RectangleShape2D_fj7yv")

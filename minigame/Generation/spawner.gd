@@ -16,7 +16,6 @@ func _on_timer_timeout() -> void:
 
 func inst(scene: PackedScene):
 	var instance = scene.instantiate()
-	print(instance.size.x)
 	instance.global_position = Vector2(spawn_x + instance.size.x/2, randi_range(spawn_y[0] + instance.size.y/2, spawn_y[1] - instance.size.y/2))
 	
 	add_child(instance)

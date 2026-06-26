@@ -89,6 +89,13 @@
 			"description": "",
 			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
 			"steps": []
+		},
+		{
+			"uuid": "d389dbc9-0980-4266-89b9-293f4d8577a8",
+			"title": "New task",
+			"description": "",
+			"category": "ae06f981-3557-4cd1-b1bc-78aae347c153",
+			"steps": []
 		}
 	],
 	"layout": {

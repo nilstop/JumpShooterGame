@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://cc4v7nvjcbhbk"]
 
 [ext_resource type="Script" uid="uid://6tbks8yw2ug0" path="res://Generation/Enemy/enemy.gd" id="1_2mvqj"]
+[ext_resource type="Texture2D" uid="uid://cg53xlxhunl0k" path="res://white.png" id="2_ntve4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsxj"]
 size = Vector2(16, 16)
+
+[sub_resource type="Curve" id="Curve_ntve4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.1059322, 0.5715757), -0.33974516, -0.33974516, 0, 0, Vector2(0.9830508, 0), -0.50860125, 0.0, 0, 0]
+point_count = 3
 
 [node name="Enemy" type="Area2D" unique_id=1359299766]
 collision_layer = 48
@@ -19,5 +24,25 @@ offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
 color = Color(1, 0.4463427, 0.52029544, 1)
+
+[node name="Death_Particle" type="CPUParticles2D" parent="." unique_id=326789208]
+position = Vector2(-3, 0)
+emitting = false
+amount = 6
+texture = ExtResource("2_ntve4")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+angular_velocity_min = -314.28
+angular_velocity_max = 114.29
+damping_min = 300.0
+damping_max = 500.0
+scale_amount_min = 15.0
+scale_amount_max = 15.0
+scale_amount_curve = SubResource("Curve_ntve4")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

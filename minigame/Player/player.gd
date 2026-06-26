@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var gravity: float
 @export var glide_velocity: float
 @export var bullet: PackedScene
+@export var particle: PackedScene
 
 func _ready() -> void:
 	Global.connect("game_over", game_over)
