@@ -13,8 +13,6 @@ point_count = 3
 [node name="Enemy" type="Area2D" unique_id=1359299766]
 collision_layer = 48
 collision_mask = 34
-monitoring = false
-monitorable = false
 script = ExtResource("1_2mvqj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62672239]
@@ -35,6 +33,7 @@ amount = 6
 texture = ExtResource("2_ntve4")
 lifetime = 0.5
 one_shot = true
+speed_scale = 1.5
 explosiveness = 1.0
 spread = 180.0
 gravity = Vector2(0, 200)

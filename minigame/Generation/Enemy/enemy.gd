@@ -4,6 +4,8 @@ extends Area2D
 @onready var score_label := get_tree().get_first_node_in_group("score_label")
 @onready var death_particle: CPUParticles2D = $Death_Particle
 @onready var camera_2d: Camera2D = %Camera2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+
 
 func _physics_process(_delta: float) -> void:
 	global_position.x -= Global.speed
@@ -14,6 +16,8 @@ func _on_area_entered(area: Area2D) -> void:
 		# fx and destroy when hit
 		monitoring = false
 		monitorable = false
+		collision_shape.disabled = true
+		collision_shape.queue_free()
 		var color = color_rect.color
 		#color_rect.color = Color.WHITE
 		area.queue_free()

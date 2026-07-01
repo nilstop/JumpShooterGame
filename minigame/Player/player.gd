@@ -5,8 +5,9 @@ extends CharacterBody2D
 @export var glide_velocity: float
 @export var bullet: PackedScene
 @export var particle: PackedScene
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var gunsplosion: PackedScene
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var camera_2d: Camera2D = %Camera2D
 
 func _ready() -> void:
@@ -17,7 +18,8 @@ func _physics_process(_delta: float) -> void:
 		if Input.is_action_just_pressed("jump"):
 			if velocity.y >= 0:
 				camera_2d.shake(3, 4)
-				inst(bullet)
+				inst(bullet, Vector2(8, -0))
+				inst(gunsplosion, Vector2(10, -0))
 				animation_player.stop()
 				animation_player.play("shump")
 			velocity.y = -jump_velocity
@@ -30,9 +32,9 @@ func _physics_process(_delta: float) -> void:
 		#rotation = deg_to_rad(velocity.y) * 0.05
 		move_and_slide()
 
-func inst(scene):
+func inst(scene, offset: Vector2 = Vector2(0,0)):
 	var instance = scene.instantiate()
-	instance.global_position = global_position + Vector2(8, -0)
+	instance.global_position = global_position + offset
 	add_sibling(instance)
 
 func game_over():
