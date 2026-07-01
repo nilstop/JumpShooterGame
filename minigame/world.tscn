@@ -8,49 +8,52 @@
 [ext_resource type="Script" uid="uid://dxsvpyksekfxi" path="res://camera_2d.gd" id="6_dwbse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
-size = Vector2(256, 22)
+size = Vector2(128, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqk2v"]
-size = Vector2(44, 218)
+size = Vector2(22, 111)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dwbse"]
 font = ExtResource("5_036b0")
+font_size = 7
 
 [node name="World" type="Node2D" unique_id=1706192879]
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=608156023]
-position = Vector2(128, 229)
+position = Vector2(64, 114.5)
 collision_layer = 4
 collision_mask = 0
 
 [node name="ColorRect4" type="ColorRect" parent="Ground" unique_id=2098669657]
-offset_left = -128.0
-offset_top = -11.0
-offset_right = 128.0
-offset_bottom = 11.0
+offset_left = -72.0
+offset_top = -5.5
+offset_right = 73.0
+offset_bottom = 14.5
 color = Color(1, 0.70980394, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=485014711]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_tlwt5")
 
 [node name="BarrierArea" type="Area2D" parent="." unique_id=1127610593 groups=["barrier"]]
-position = Vector2(22, 109)
+position = Vector2(11, 54.5)
 collision_layer = 32
 collision_mask = 0
 
 [node name="ColorRect" type="ColorRect" parent="BarrierArea" unique_id=1678445882]
-offset_left = -22.0
-offset_top = -109.0
-offset_right = 22.0
-offset_bottom = 109.0
+offset_left = -19.0
+offset_top = -64.5
+offset_right = 11.0
+offset_bottom = 54.5
 color = Color(0.62249607, 0.33591858, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BarrierArea" unique_id=1450754405]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_aqk2v")
 
 [node name="Player" parent="." unique_id=1319995333 instance=ExtResource("1_f3sb7")]
-position = Vector2(22, 122)
+position = Vector2(11, 100)
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1707488693]
 script = ExtResource("2_tlwt5")
@@ -71,7 +74,7 @@ label_settings = SubResource("LabelSettings_dwbse")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=29800632 groups=["camera"]]
 unique_name_in_owner = true
-position = Vector2(128, 120)
+position = Vector2(64, 60)
 script = ExtResource("6_dwbse")
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

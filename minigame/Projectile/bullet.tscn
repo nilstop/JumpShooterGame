@@ -3,19 +3,19 @@
 [ext_resource type="Script" uid="uid://df50npkealo23" path="res://Projectile/bullet.gd" id="1_aw5ly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfclm"]
-size = Vector2(12, 6)
+size = Vector2(6, 4)
 
 [node name="Bullet" type="Area2D" unique_id=1681615715 groups=["bullet"]]
 collision_layer = 2
 collision_mask = 20
 script = ExtResource("1_aw5ly")
-speed = 10.0
+speed = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2099078257]
 shape = SubResource("RectangleShape2D_xfclm")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=679595635]
-offset_left = -6.0
-offset_top = -3.0
-offset_right = 6.0
-offset_bottom = 3.0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 2.0

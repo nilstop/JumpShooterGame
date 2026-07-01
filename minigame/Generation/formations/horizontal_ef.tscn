@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://6r2yjn61qj14" path="res://Generation/formations/enemy_formation.tscn" id="1_ycj2b"]
 
 [node name="Horizontal EF" unique_id=871757220 instance=ExtResource("1_ycj2b")]
-size = Vector2(66, 22)
+size = Vector2(34, 12)
 
 [node name="Enemy2" parent="." index="1" unique_id=1359299766 instance=ExtResource("1_4r784")]
-position = Vector2(22, 0)
+position = Vector2(10, 0)
 
 [node name="Enemy3" parent="." index="2" unique_id=2051293244 instance=ExtResource("1_4r784")]
-position = Vector2(-22, 0)
+position = Vector2(-10, 0)

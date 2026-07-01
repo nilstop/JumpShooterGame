@@ -12,15 +12,20 @@ func _on_area_entered(area: Area2D) -> void:
 	print("collission")
 	if area.is_in_group("bullet"):
 		# fx and destroy when hit
-		color_rect.color = Color.WHITE
+		monitoring = false
+		monitorable = false
+		var color = color_rect.color
+		#color_rect.color = Color.WHITE
 		area.queue_free()
 		death_particle.emitting = true
-		await get_tree().create_timer(0.05).timeout
+		#for i in 3:
+		#	color_rect.position = Vector2(randi_range(-8,-0), randi_range(-8,-0))
+		#	await get_tree().create_timer(0.07).timeout
+		#	color_rect.color = color
 		Global.score += 1000
 		score_label.text = str(Global.score)
 		color_rect.hide()
-		monitoring = false
-		monitorable = false
+
 		#get_tree().get_first_node_in_group("camera").shake(3)
 		await death_particle.finished
 		queue_free()

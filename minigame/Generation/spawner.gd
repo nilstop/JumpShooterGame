@@ -1,7 +1,7 @@
 extends Node2D
 
-var spawn_x := 340
-var spawn_y := [42, 214]
+var spawn_x := 180
+var spawn_y := [21, 99]
 
 
 

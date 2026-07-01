@@ -18,23 +18,21 @@ func _physics_process(_delta: float) -> void:
 			if velocity.y >= 0:
 				camera_2d.shake(3, 4)
 				inst(bullet)
+				animation_player.stop()
 				animation_player.play("shump")
 			velocity.y = -jump_velocity
 		#if Input.is_action_just_pressed("shoot"):
 		#	inst(bullet)
-		if Input.is_action_pressed("jump") and velocity.y >= 0:
-			velocity.y = glide_velocity
+		if velocity.y > 0:
+			velocity.y += gravity * 1.3
 		else:
-			if velocity.y > 0:
-				velocity.y += gravity * 1.3
-			else:
-				velocity.y += gravity
+			velocity.y += gravity
 		#rotation = deg_to_rad(velocity.y) * 0.05
 		move_and_slide()
 
 func inst(scene):
 	var instance = scene.instantiate()
-	instance.global_position = global_position + Vector2(16, -16)
+	instance.global_position = global_position + Vector2(8, -0)
 	add_sibling(instance)
 
 func game_over():
