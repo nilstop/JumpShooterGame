@@ -1,14 +1,72 @@
 [gd_scene format=3 uid="uid://cc4v7nvjcbhbk"]
 
 [ext_resource type="Script" uid="uid://6tbks8yw2ug0" path="res://Generation/Enemy/enemy.gd" id="1_2mvqj"]
-[ext_resource type="Texture2D" uid="uid://cg53xlxhunl0k" path="res://fx/white.png" id="2_ntve4"]
+[ext_resource type="Texture2D" uid="uid://cu3mm7k28ofgs" path="res://fx/fx.png" id="3_pdyro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsxj"]
 size = Vector2(8, 8)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntve4"]
+atlas = ExtResource("3_pdyro")
+region = Rect2(0, 0, 4, 4)
+
 [sub_resource type="Curve" id="Curve_ntve4"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.1059322, 0.5715757), -0.33974516, -0.33974516, 0, 0, Vector2(0.9830508, 0), -0.50860125, 0.0, 0, 0]
+_data = [Vector2(0, 0.61797756), 0.0, 0.0, 0, 0, Vector2(0.15957448, 0.64044946), -0.33974516, -0.33974516, 0, 0, Vector2(0.9830508, 0), -0.50860125, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="Animation" id="Animation_7wdl2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FxSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(16, 0, 23, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_2pd1f"]
+resource_name = "death"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FxSprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(16, 0, 23, 23), Rect2(16, 32, 23, 23)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FxSprite")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nq4bg"]
+_data = {
+&"RESET": SubResource("Animation_7wdl2"),
+&"death": SubResource("Animation_2pd1f")
+}
 
 [node name="Enemy" type="Area2D" unique_id=1359299766]
 collision_layer = 48
@@ -27,11 +85,10 @@ color = Color(1, 0.4463427, 0.52029544, 1)
 
 [node name="Death_Particle" type="CPUParticles2D" parent="." unique_id=326789208]
 position = Vector2(-3, 0)
-scale = Vector2(0.5, 0.5)
 emitting = false
-amount = 6
-texture = ExtResource("2_ntve4")
-lifetime = 0.5
+amount = 4
+texture = SubResource("AtlasTexture_ntve4")
+lifetime = 0.8
 one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
@@ -39,12 +96,21 @@ spread = 180.0
 gravity = Vector2(0, 200)
 initial_velocity_min = 150.0
 initial_velocity_max = 150.0
-angular_velocity_min = -314.28
-angular_velocity_max = 114.29
-damping_min = 300.0
+angular_velocity_min = -556.66
+angular_velocity_max = 470.73
+damping_min = 400.0
 damping_max = 500.0
-scale_amount_min = 15.0
-scale_amount_max = 15.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_ntve4")
+
+[node name="FxSprite" type="Sprite2D" parent="." unique_id=1399673658]
+visible = false
+texture = ExtResource("3_pdyro")
+region_enabled = true
+region_rect = Rect2(16, 0, 23, 23)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1480391943]
+libraries/ = SubResource("AnimationLibrary_nq4bg")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

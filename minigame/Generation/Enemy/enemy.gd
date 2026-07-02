@@ -3,22 +3,35 @@ extends Area2D
 @onready var color_rect: ColorRect = $ColorRect
 @onready var score_label := get_tree().get_first_node_in_group("score_label")
 @onready var death_particle: CPUParticles2D = $Death_Particle
-@onready var camera_2d: Camera2D = %Camera2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var fx_sprite: Sprite2D = $FxSprite
+@onready var camera_2d: Camera2D = get_tree().get_first_node_in_group("camera")
 
+var start_y_pos: float
+var bounce_offset := 0.0
+var bounce_amp := 1.0
+var bounce_freq := 1.0
+
+func _ready() -> void:
+	start_y_pos = global_position.y
 
 func _physics_process(_delta: float) -> void:
 	global_position.x -= Global.speed
+	bounce_offset = sin(global_position.x * bounce_freq) * bounce_amp
+	global_position.y = start_y_pos + bounce_offset
 
 func _on_area_entered(area: Area2D) -> void:
-	print("collission")
 	if area.is_in_group("bullet"):
 		# fx and destroy when hit
+		animation_player.play("death")
+		fx_sprite.rotate(deg_to_rad(randi_range(0, 360)))
+		camera_2d.shake(3, 4)
 		monitoring = false
 		monitorable = false
-		collision_shape.disabled = true
+		#collision_shape.disabled = true
 		collision_shape.queue_free()
-		var color = color_rect.color
+		#var color = color_rect.color
 		#color_rect.color = Color.WHITE
 		area.queue_free()
 		death_particle.emitting = true
