@@ -17,7 +17,7 @@ func _physics_process(_delta: float) -> void:
 	if Global.is_game_over == false:
 		if Input.is_action_just_pressed("jump"):
 			if velocity.y >= 0:
-				#camera_2d.shake(3, 4)
+				camera_2d.shake(4, 1)
 				inst(bullet, Vector2(8, -4))
 				inst(gunsplosion, Vector2(10, -4))
 				animation_player.stop()
