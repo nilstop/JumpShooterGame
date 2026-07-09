@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://0oy77lfm4giw" path="res://Generation/spawner.gd" id="2_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bw1l5virux584" path="res://Generation/formations/horizontal_ef.tscn" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://400ycqxrcwv" path="res://Generation/formations/vertical_ef.tscn" id="4_036b0"]
-[ext_resource type="FontFile" uid="uid://djh38d1lr5wc7" path="res://Fonts/ari-w9500-condensed-bold.ttf" id="5_036b0"]
+[ext_resource type="FontFile" uid="uid://bu3jwtcj1pmoj" path="res://Fonts/Minecraft.ttf" id="5_bkhv4"]
 [ext_resource type="Script" uid="uid://dxsvpyksekfxi" path="res://World/camera_2d.gd" id="6_dwbse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
@@ -14,8 +14,7 @@ size = Vector2(128, 12)
 size = Vector2(22, 111)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dwbse"]
-font = ExtResource("5_036b0")
-font_size = 7
+font = ExtResource("5_bkhv4")
 
 [node name="World" type="Node2D" unique_id=1706192879]
 

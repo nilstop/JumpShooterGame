@@ -3,6 +3,7 @@ extends Area2D
 @onready var color_rect: ColorRect = $ColorRect
 @onready var score_label := get_tree().get_first_node_in_group("score_label")
 @onready var death_particle: CPUParticles2D = $Death_Particle
+@onready var death_particle_2: CPUParticles2D = $Death_Particle2
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var fx_sprite: Sprite2D = $FxSprite
@@ -35,11 +36,12 @@ func _on_area_entered(area: Area2D) -> void:
 		#color_rect.color = Color.WHITE
 		area.queue_free()
 		death_particle.emitting = true
+		death_particle_2.emitting = true
 		#for i in 3:
 		#	color_rect.position = Vector2(randi_range(-8,-0), randi_range(-8,-0))
 		#	await get_tree().create_timer(0.07).timeout
 		#	color_rect.color = color
-		Global.score += 1000
+		Global.score += 20
 		score_label.text = str(Global.score)
 		color_rect.hide()
 

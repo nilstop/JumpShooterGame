@@ -6,9 +6,11 @@ extends CharacterBody2D
 @export var bullet: PackedScene
 @export var particle: PackedScene
 @export var gunsplosion: PackedScene
+@export var jump_fx: PackedScene
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var camera_2d: Camera2D = %Camera2D
+
 
 func _ready() -> void:
 	Global.connect("game_over", game_over)
@@ -20,6 +22,7 @@ func _physics_process(_delta: float) -> void:
 				camera_2d.shake(4, 1)
 				inst(bullet, Vector2(8, -4))
 				inst(gunsplosion, Vector2(10, -4))
+				inst(jump_fx, Vector2(0, 2))
 				animation_player.stop()
 				animation_player.play("shump")
 			velocity.y = -jump_velocity

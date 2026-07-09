@@ -8,7 +8,7 @@ size = Vector2(8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntve4"]
 atlas = ExtResource("3_pdyro")
-region = Rect2(0, 0, 4, 4)
+region = Rect2(0, 5, 3, 3)
 
 [sub_resource type="Curve" id="Curve_ntve4"]
 _data = [Vector2(0, 0.61797756), 0.0, 0.0, 0, 0, Vector2(0.15957448, 0.64044946), -0.33974516, -0.33974516, 0, 0, Vector2(0.9830508, 0), -0.50860125, 0.0, 0, 0]
@@ -102,6 +102,26 @@ damping_min = 400.0
 damping_max = 500.0
 scale_amount_min = 3.0
 scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_ntve4")
+
+[node name="Death_Particle2" type="CPUParticles2D" parent="." unique_id=550512878]
+position = Vector2(-3, 0)
+emitting = false
+amount = 7
+lifetime = 0.8
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+angular_velocity_min = -556.66
+angular_velocity_max = 470.73
+damping_min = 400.0
+damping_max = 500.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_ntve4")
 
 [node name="FxSprite" type="Sprite2D" parent="." unique_id=1399673658]
