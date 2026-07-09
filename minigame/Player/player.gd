@@ -13,21 +13,28 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
+	
 	Global.connect("game_over", game_over)
 
 func _physics_process(_delta: float) -> void:
 	if Global.is_game_over == false:
 		if Input.is_action_just_pressed("jump"):
+			inst(jump_fx, Vector2(0, 2))
 			if velocity.y >= 0:
 				camera_2d.shake(4, 1)
 				inst(bullet, Vector2(8, -4))
 				inst(gunsplosion, Vector2(10, -4))
-				inst(jump_fx, Vector2(0, 2))
 				animation_player.stop()
 				animation_player.play("shump")
+			else:
+				animation_player.stop()
+				animation_player.play("jump")
+				
 			velocity.y = -jump_velocity
+			
 		#if Input.is_action_just_pressed("shoot"):
 		#	inst(bullet)
+		
 		if velocity.y > 0:
 			velocity.y += gravity * 1.3
 		else:
