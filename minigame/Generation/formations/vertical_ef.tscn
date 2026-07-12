@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://cc4v7nvjcbhbk" path="res://Generation/Enemy/enemy.tscn" id="2_fxity"]
 
 [node name="Vertical EF" unique_id=871757220 instance=ExtResource("1_4g75v")]
-size = Vector2(12, 34)
+size = Vector2(21, 38)
 
-[node name="Enemy2" parent="." index="1" unique_id=1359299766 instance=ExtResource("2_fxity")]
-position = Vector2(0, -10)
+[node name="Enemy" parent="." index="0" unique_id=1359299766]
+position = Vector2(0, 9)
 
-[node name="Enemy3" parent="." index="2" unique_id=1750990678 instance=ExtResource("2_fxity")]
-position = Vector2(0, 10)
+[node name="Enemy2" parent="." index="1" unique_id=1814705317 instance=ExtResource("2_fxity")]
+position = Vector2(0, -9)
