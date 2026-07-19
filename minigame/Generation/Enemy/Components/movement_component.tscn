@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dr0ckc2hhbg5a"]
+
+[ext_resource type="Script" uid="uid://bv0lr4hytaut5" path="res://Generation/Enemy/Components/movement.gd" id="1_02k80"]
+
+[node name="Movement" type="Node2D" unique_id=994256535]
+script = ExtResource("1_02k80")

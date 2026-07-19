@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dvp67hw7vlggx"]
+
+[ext_resource type="Script" uid="uid://btup05xsldfba" path="res://Generation/Enemy/Components/health.gd" id="1_1sh6w"]
+
+[node name="Health Damage" type="Node2D" unique_id=1450621391]
+script = ExtResource("1_1sh6w")
+health = 1

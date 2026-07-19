@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://cjfihrjm250t8"]
+
+[ext_resource type="Script" uid="uid://dpp6blyucdamw" path="res://Generation/Enemy/Components/effects.gd" id="1_f44pk"]
+[ext_resource type="Texture2D" uid="uid://cs1uvshrtssb0" path="res://Generation/Enemy/Bee/bee-part.png" id="2_77dee"]
+[ext_resource type="Texture2D" uid="uid://cu3mm7k28ofgs" path="res://fx/fx.png" id="3_dbmjk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wdl2"]
+atlas = ExtResource("2_77dee")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2op5"]
+atlas = ExtResource("2_77dee")
+region = Rect2(17, 2, 6, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ok1r"]
+atlas = ExtResource("2_77dee")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntve4"]
+atlas = ExtResource("3_dbmjk")
+region = Rect2(0, 5, 3, 3)
+
+[sub_resource type="Curve" id="Curve_ntve4"]
+_data = [Vector2(0, 0.61797756), 0.0, 0.0, 0, 0, Vector2(0.15957448, 0.64044946), -0.33974516, -0.33974516, 0, 0, Vector2(0.9830508, 0), -0.50860125, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_7wdl2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Effects/FxSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(16, 0, 23, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_2pd1f"]
+resource_name = "death"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Effects/FxSprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(16, 0, 23, 23), Rect2(16, 32, 23, 23)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Effects/FxSprite")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nq4bg"]
+_data = {
+&"RESET": SubResource("Animation_7wdl2"),
+&"death": SubResource("Animation_2pd1f")
+}
+
+[node name="Effects" type="Node2D" unique_id=605409291]
+script = ExtResource("1_f44pk")
+
+[node name="BodyExplode" type="Node2D" parent="." unique_id=2079259986]
+
+[node name="Head" type="CPUParticles2D" parent="BodyExplode" unique_id=1661848937]
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_7wdl2")
+lifetime = 10.0
+one_shot = true
+spread = 60.59
+gravity = Vector2(0, 600)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+angular_velocity_min = -600.0
+angular_velocity_max = 600.0
+
+[node name="Sting" type="CPUParticles2D" parent="BodyExplode" unique_id=1010147841]
+emitting = false
+amount = 1
+texture = SubResource("AtlasTexture_w2op5")
+lifetime = 10.0
+one_shot = true
+spread = 60.59
+gravity = Vector2(0, 600)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+angular_velocity_min = -600.0
+angular_velocity_max = 600.0
+
+[node name="Wing" type="CPUParticles2D" parent="BodyExplode" unique_id=640568183]
+emitting = false
+amount = 2
+texture = SubResource("AtlasTexture_0ok1r")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+spread = 60.59
+gravity = Vector2(0, 600)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+angular_velocity_min = -600.0
+angular_velocity_max = 600.0
+
+[node name="Death_Particle" type="CPUParticles2D" parent="." unique_id=1996195936]
+position = Vector2(-3, 0)
+emitting = false
+amount = 4
+texture = SubResource("AtlasTexture_ntve4")
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+angular_velocity_min = -556.66
+angular_velocity_max = 470.73
+damping_min = 400.0
+damping_max = 500.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_ntve4")
+
+[node name="Death_Particle2" type="CPUParticles2D" parent="." unique_id=2104258434]
+position = Vector2(-3, 0)
+emitting = false
+amount = 7
+lifetime = 0.8
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+angular_velocity_min = -556.66
+angular_velocity_max = 470.73
+damping_min = 400.0
+damping_max = 500.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_ntve4")
+color = Color(1, 0.27999997, 0.27999997, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=118798730]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_nq4bg")
+
+[node name="FxSprite" type="Sprite2D" parent="." unique_id=17214148]
+visible = false
+texture = ExtResource("3_dbmjk")
+region_enabled = true
+region_rect = Rect2(16, 0, 23, 23)

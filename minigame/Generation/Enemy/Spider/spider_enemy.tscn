@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://mx04klk5b7pr"]
+
+[ext_resource type="Texture2D" uid="uid://dtsnaidm8piw1" path="res://Generation/Enemy/Spider/Spider.png" id="1_by2g3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ixod"]
+size = Vector2(10, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4plr6"]
+region = Rect2(4, 0, 8, 8)
+
+[node name="Spider_enemy" type="Area2D" unique_id=678324377]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=27662476]
+texture = ExtResource("1_by2g3")
+region_enabled = true
+region_rect = Rect2(15, 10, 18, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=114323702]
+shape = SubResource("RectangleShape2D_0ixod")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=160302277]
+offset_left = -4.0
+offset_top = -68.0
+offset_right = 4.0
+offset_bottom = -14.0
+texture = SubResource("AtlasTexture_4plr6")
+stretch_mode = 1

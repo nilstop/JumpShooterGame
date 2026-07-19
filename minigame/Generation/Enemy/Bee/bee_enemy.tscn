@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://cc4v7nvjcbhbk"]
+
+[ext_resource type="Script" uid="uid://6tbks8yw2ug0" path="res://Generation/Enemy/Components/enemy.gd" id="1_t1yqx"]
+[ext_resource type="PackedScene" uid="uid://dvp67hw7vlggx" path="res://Generation/Enemy/Components/damage_component.tscn" id="3_5n3k6"]
+[ext_resource type="Texture2D" uid="uid://dq8cpo8de5mh" path="res://Generation/Enemy/Bee/bee-Sheet.png" id="3_ag48i"]
+[ext_resource type="PackedScene" uid="uid://cjfihrjm250t8" path="res://Generation/Enemy/Components/effects_component.tscn" id="4_76uuw"]
+[ext_resource type="PackedScene" uid="uid://dr0ckc2hhbg5a" path="res://Generation/Enemy/Components/movement_component.tscn" id="5_i3qel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsxj"]
+size = Vector2(10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pd1f"]
+atlas = ExtResource("3_ag48i")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq4bg"]
+atlas = ExtResource("3_ag48i")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11yvy"]
+atlas = ExtResource("3_ag48i")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41bbg"]
+atlas = ExtResource("3_ag48i")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i13vd"]
+atlas = ExtResource("3_ag48i")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrs7r"]
+atlas = ExtResource("3_ag48i")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cbv6"]
+atlas = ExtResource("3_ag48i")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duw5v"]
+atlas = ExtResource("3_ag48i")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ok1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pd1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq4bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11yvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41bbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i13vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrs7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cbv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duw5v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Bee" type="Area2D" unique_id=1359299766 node_paths=PackedStringArray("damage_node")]
+collision_layer = 48
+collision_mask = 34
+script = ExtResource("1_t1yqx")
+damage_node = NodePath("Health Damage")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62672239]
+shape = SubResource("RectangleShape2D_ofsxj")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=262146175]
+sprite_frames = SubResource("SpriteFrames_0ok1r")
+autoplay = "default"
+frame = 6
+frame_progress = 0.4928753
+
+[node name="Health Damage" parent="." unique_id=1450621391 node_paths=PackedStringArray("effects") instance=ExtResource("3_5n3k6")]
+effects = NodePath("../Effects")
+
+[node name="Effects" parent="." unique_id=605409291 instance=ExtResource("4_76uuw")]
+
+[node name="Movement" parent="." unique_id=994256535 instance=ExtResource("5_i3qel")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

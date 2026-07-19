@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq8cpo8de5mh"
-path="res://.godot/imported/bee-Sheet.png-9aca32dd9a322135c5e36bf019da2ebc.ctex"
+uid="uid://dtsnaidm8piw1"
+path="res://.godot/imported/Spider.png-33b0ce02822a794136cf3da89baab1f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Generation/Enemy/bee-Sheet.png"
-dest_files=["res://.godot/imported/bee-Sheet.png-9aca32dd9a322135c5e36bf019da2ebc.ctex"]
+source_file="res://Generation/Enemy/Spider/Spider.png"
+dest_files=["res://.godot/imported/Spider.png-33b0ce02822a794136cf3da89baab1f1.ctex"]
 
 [params]
 

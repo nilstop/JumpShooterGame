@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6r2yjn61qj14"]
 
 [ext_resource type="Script" uid="uid://botbi541tahh6" path="res://Generation/formations/enemy_formation.gd" id="1_og43k"]
-[ext_resource type="PackedScene" uid="uid://cc4v7nvjcbhbk" path="res://Generation/Enemy/enemy.tscn" id="1_q0l0g"]
+[ext_resource type="PackedScene" uid="uid://cc4v7nvjcbhbk" path="res://Generation/Enemy/Bee/bee_enemy.tscn" id="1_q0l0g"]
 
 [node name="Enemy Formation" type="Node2D" unique_id=871757220]
 script = ExtResource("1_og43k")

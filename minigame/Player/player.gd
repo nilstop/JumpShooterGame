@@ -27,8 +27,9 @@ func _physics_process(_delta: float) -> void:
 				animation_player.stop()
 				animation_player.play("shump")
 			else:
-				animation_player.stop()
-				animation_player.play("jump")
+				pass
+				#animation_player.stop()
+				#animation_player.play("jump")
 				
 			velocity.y = -jump_velocity
 			
