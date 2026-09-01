@@ -12,13 +12,15 @@ func _ready() -> void:
 	Global.connect("game_over", game_over)
 
 func _on_timer_timeout() -> void:
-	inst(enemy_formations.pick_random())
+	inst(enemy_formations[2])
 
 func inst(scene: PackedScene):
 	var instance = scene.instantiate()
-	instance.global_position = Vector2(spawn_x + instance.size.x/2, randi_range(spawn_y[0] + instance.size.y/2, spawn_y[1] - instance.size.y/2))
-	
-	add_child(instance)
+	if instance.spider == false:
+		instance.global_position = Vector2(spawn_x + instance.size.x/2, randi_range(spawn_y[0] + instance.size.y/2, spawn_y[1] - instance.size.y/2))
+	else:
+		instance.global_position = Vector2(spawn_x-40, spawn_y[0]-40)
+	#add_child(instance)
 
 func game_over():
 	timer.stop()

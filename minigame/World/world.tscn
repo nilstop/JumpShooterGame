@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bw1l5virux584" path="res://Generation/formations/horizontal_ef.tscn" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://400ycqxrcwv" path="res://Generation/formations/vertical_ef.tscn" id="4_036b0"]
 [ext_resource type="FontFile" uid="uid://bu3jwtcj1pmoj" path="res://Fonts/Minecraft.ttf" id="5_bkhv4"]
+[ext_resource type="PackedScene" uid="uid://mx04klk5b7pr" path="res://Generation/Enemy/Spider/spider_enemy.tscn" id="5_yf0ba"]
 [ext_resource type="Script" uid="uid://dxsvpyksekfxi" path="res://World/camera_2d.gd" id="6_dwbse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
@@ -56,11 +57,14 @@ position = Vector2(11, 100)
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1707488693]
 script = ExtResource("2_tlwt5")
-enemy_formations = Array[PackedScene]([ExtResource("3_aqk2v"), ExtResource("4_036b0")])
+enemy_formations = Array[PackedScene]([ExtResource("3_aqk2v"), ExtResource("4_036b0"), ExtResource("5_yf0ba")])
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=62637914]
 wait_time = 1.5
 autostart = true
+
+[node name="Spider_enemy" parent="Spawner" unique_id=678324377 instance=ExtResource("5_yf0ba")]
+position = Vector2(111, -16)
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=1416021581 groups=["score_label"]]
 unique_name_in_owner = true

@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var score_label := get_tree().get_first_node_in_group("score_label")
 @onready var collision_shape: CollisionShape2D = $"../CollisionShape2D"
-@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var camera_2d: Camera2D = get_tree().get_first_node_in_group("camera")
 
 @onready var sprite: AnimatedSprite2D = $"../Sprite"
