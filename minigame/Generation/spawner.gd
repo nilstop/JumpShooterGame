@@ -12,7 +12,10 @@ func _ready() -> void:
 	Global.connect("game_over", game_over)
 
 func _on_timer_timeout() -> void:
-	inst(enemy_formations[2])
+	if randi_range(0, 4) == 0:
+		inst(enemy_formations[2])
+	else:
+		inst(enemy_formations[[0,1].pick_random()])
 
 func inst(scene: PackedScene):
 	var instance = scene.instantiate()
@@ -20,7 +23,7 @@ func inst(scene: PackedScene):
 		instance.global_position = Vector2(spawn_x + instance.size.x/2, randi_range(spawn_y[0] + instance.size.y/2, spawn_y[1] - instance.size.y/2))
 	else:
 		instance.global_position = Vector2(spawn_x-40, spawn_y[0]-40)
-	#add_child(instance)
+	add_child(instance)
 
 func game_over():
 	timer.stop()

@@ -1,23 +1,34 @@
 [gd_scene format=3 uid="uid://mx04klk5b7pr"]
 
 [ext_resource type="Script" uid="uid://bjbtxxta42dgv" path="res://Generation/Enemy/Spider/spider_enemy.gd" id="1_7yqtb"]
-[ext_resource type="Texture2D" uid="uid://dtsnaidm8piw1" path="res://Generation/Enemy/Spider/Spider.png" id="1_by2g3"]
-[ext_resource type="PackedScene" uid="uid://dr0ckc2hhbg5a" path="res://Generation/Enemy/Components/movement_component.tscn" id="2_76etb"]
+[ext_resource type="Texture2D" uid="uid://dl08f05021ae3" path="res://Generation/Enemy/Spider/Spider-export.png" id="2_7yqtb"]
 [ext_resource type="PackedScene" uid="uid://cjfihrjm250t8" path="res://Generation/Enemy/Components/effects_component.tscn" id="3_7yqtb"]
 [ext_resource type="PackedScene" uid="uid://dvp67hw7vlggx" path="res://Generation/Enemy/Components/damage_component.tscn" id="4_tpo18"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7yqtb"]
-atlas = ExtResource("1_by2g3")
-region = Rect2(0, 0, 48, 46)
+[sub_resource type="AtlasTexture" id="AtlasTexture_76etb"]
+atlas = ExtResource("2_7yqtb")
+region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tpo18"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yqtb"]
+atlas = ExtResource("2_7yqtb")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3dkf"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76etb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7yqtb")
 }],
 "loop": true,
-"name": &"default",
+"name": &"hitframe",
 "speed": 5.0
 }]
 
@@ -29,6 +40,23 @@ region = Rect2(4, 0, 8, 8)
 
 [sub_resource type="Animation" id="Animation_7yqtb"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_76etb"]
+resource_name = "death"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"string_leave"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_j3dkf"]
 resource_name = "spiderspawn"
@@ -55,17 +83,21 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a3pa7"]
 _data = {
 &"RESET": SubResource("Animation_7yqtb"),
+&"death": SubResource("Animation_76etb"),
 &"spiderspawn": SubResource("Animation_j3dkf")
 }
 
 [node name="Spider_enemy" type="Area2D" unique_id=678324377 node_paths=PackedStringArray("damage_node")]
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_7yqtb")
 damage_node = NodePath("Health Damage")
 enter_at = Vector2(90, 90)
+enter_range = 40.0
 sway_distance = 60.0
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=905206295]
-sprite_frames = SubResource("SpriteFrames_tpo18")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1743504794]
+sprite_frames = SubResource("SpriteFrames_j3dkf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=114323702]
 shape = SubResource("RectangleShape2D_0ixod")
@@ -78,19 +110,20 @@ offset_bottom = -14.0
 texture = SubResource("AtlasTexture_4plr6")
 stretch_mode = 1
 
-[node name="Effects" parent="." unique_id=605409291 instance=ExtResource("3_7yqtb")]
+[node name="Effects" parent="." unique_id=605409291 node_paths=PackedStringArray("sprite") instance=ExtResource("3_7yqtb")]
+enemy_type = 1
+sprite = NodePath("../AnimatedSprite2D")
 
-[node name="Health Damage" parent="." unique_id=1450621391 node_paths=PackedStringArray("effects") instance=ExtResource("4_tpo18")]
+[node name="Health Damage" parent="." unique_id=1450621391 node_paths=PackedStringArray("effects", "sprite") instance=ExtResource("4_tpo18")]
 health = 2
 effects = NodePath("../Effects")
-
-[node name="Movement" parent="." unique_id=994256535 instance=ExtResource("2_76etb")]
-bounce_amp = 0.0
-bounce_freq = 0.0
-speed = 0.1
-disable_bounce = true
+sprite = NodePath("../AnimatedSprite2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2132943716]
 libraries/ = SubResource("AnimationLibrary_a3pa7")
+
+[node name="String" type="Line2D" parent="." unique_id=1112570798]
+points = PackedVector2Array(0, -124, 0, -104, 0, -78, 0, -59, 0, -41, 0, -25, 0, -13)
+width = 2.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

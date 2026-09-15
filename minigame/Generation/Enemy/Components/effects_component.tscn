@@ -81,9 +81,9 @@ _data = {
 [node name="Effects" type="Node2D" unique_id=605409291]
 script = ExtResource("1_f44pk")
 
-[node name="BodyExplode" type="Node2D" parent="." unique_id=2079259986]
+[node name="BodyExplodeBee" type="Node2D" parent="." unique_id=2079259986]
 
-[node name="Head" type="CPUParticles2D" parent="BodyExplode" unique_id=1661848937]
+[node name="Head" type="CPUParticles2D" parent="BodyExplodeBee" unique_id=1661848937]
 emitting = false
 amount = 1
 texture = SubResource("AtlasTexture_7wdl2")
@@ -96,7 +96,7 @@ initial_velocity_max = 150.0
 angular_velocity_min = -600.0
 angular_velocity_max = 600.0
 
-[node name="Sting" type="CPUParticles2D" parent="BodyExplode" unique_id=1010147841]
+[node name="Sting" type="CPUParticles2D" parent="BodyExplodeBee" unique_id=1010147841]
 emitting = false
 amount = 1
 texture = SubResource("AtlasTexture_w2op5")
@@ -109,7 +109,7 @@ initial_velocity_max = 150.0
 angular_velocity_min = -600.0
 angular_velocity_max = 600.0
 
-[node name="Wing" type="CPUParticles2D" parent="BodyExplode" unique_id=640568183]
+[node name="Wing" type="CPUParticles2D" parent="BodyExplodeBee" unique_id=640568183]
 emitting = false
 amount = 2
 texture = SubResource("AtlasTexture_0ok1r")

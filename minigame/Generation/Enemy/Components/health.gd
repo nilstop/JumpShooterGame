@@ -4,7 +4,6 @@ extends Node2D
 @onready var collision_shape: CollisionShape2D = $"../CollisionShape2D"
 @onready var camera_2d: Camera2D = get_tree().get_first_node_in_group("camera")
 
-@onready var sprite: AnimatedSprite2D = $"../Sprite"
 @onready var p := get_parent()
 
 
@@ -14,16 +13,17 @@ extends Node2D
 
 # Nodes
 @export var effects: Node2D
+@export var sprite: AnimatedSprite2D
 
 func hit(area):
 	if area.is_in_group("bullet"):
 		health -= Global.player_damage
 		if health <= 0:
 			destroy(area)
-	
+		area.queue_free()
 	elif area.is_in_group("barrier"):
 		game_over()
-
+	effects.hit()
 
 
 func game_over():
@@ -35,8 +35,8 @@ func game_over():
 func destroy(area):
 	
 	collision_shape.queue_free()
-	area.queue_free()
 	
+	p.death()
 	# Effects
 	sprite.hide()
 	effects.particles()
